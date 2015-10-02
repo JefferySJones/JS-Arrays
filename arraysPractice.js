@@ -424,6 +424,5 @@ Once you find the particular index he's located in, delete him from the array.*/
   }
   
   deleteAccount(users, user1);
-
 //The activity we just did is very much how data works in 'the real world'.
 
