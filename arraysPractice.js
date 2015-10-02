@@ -5,8 +5,11 @@ var arr = [10,20,30];
 //Create a function named 'first' that is given 'arr' as the argument and  returns the first item in the given array.
 
   //Code Here
+  function first(arr) {
+    return arr[0];
+  };
 
-
+first(arr);
 //Next problem
 
 
@@ -16,7 +19,11 @@ var arr = [40,50,60];
 
 
   //Code Here
-
+  function last() {
+    return arr[arr.length - 1];
+  };
+  
+  last(arr);
 
 //Next Problem
 
@@ -25,8 +32,13 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 //Create a function named 'looper' that is given family as it's only argument, loops through the given array, and alerts every item in the array.
 
   //Code Here
-
-
+  function looper(e) {
+    for (var i = 0; i < e.length; i++) {
+      alert(e[i]);  
+    }
+  };
+  
+  looper(family);
 //Next problem
 
 
@@ -35,16 +47,32 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 //Write a function called reversedLooper that is given letters as it's only argument and loops through the given array backwards alerting every item in the array starting at the end.
 
   //Code Here
-
-
+  function reversedLooper(e) {
+    var w = e.reverse();
+    for (var i = 0; i < e.length; i++) {
+      alert(w[i]);  
+    }
+  };
+  
+  reversedLooper(letters);
 //Next Problem
 
 
-var nums = [1,2,3,6,22,98,45,23,22,12];
+var nums = [1,2,3,6,22,98,45,23,22,12,-1,-2,-3];
 //Write a function named evenFinder that is given nums as it's only argument and removes all values that aren't even from the given array.
 
   //Code Here
-
+  function evenFinder(arr) {
+    for (var i = 0; i < arr.length; i++) {
+      if (Math.abs(arr[i]) % 2 !== 0) {
+        arr.splice(i, 1);
+        i--;
+      }
+    }
+    return arr;
+  }
+  var even = evenFinder(nums);
+  console.log(even);
 
 //Next problem
 
@@ -58,8 +86,19 @@ var odds = [];
 
 
   //Code Here
+  function divider(nums, evens, odds) {
+    for (var i = 0; i < nums.length; i++) {
+       if (nums[i] % 2 !== 0) {
+        odds.push(nums[i]);
+       }
+       else {
+         evens.push(nums[i]);
+       }
+    }
+    return [evens, odds];
+  }
 
-
+divider(nums, evens, odds);
 //Next Problem
 
 
@@ -67,10 +106,22 @@ var getRandomArbitrary = function() {
   return Math.floor(Math.random() * (30 - 0) + 0);
 };
 var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
-//Above you're given a function that will return a random number between 0 and 30, and an array full of numbers. Your job is to write a function named finder that will get a random number, then loop through the array to see if that random number is in the array. If it is, return true, if it's not, return false
+//Above you're given a function that will return a random number between 0 and 30, and an array full of numbers. 
+//Your job is to write a function named finder that will get a random number, then loop through the array to see 
+//if that random number is in the array. If it is, return true, if it's not, return false
 
   //Code Here
-
+  function finder(arr) {
+    var rand = getRandomArbitrary();
+    if (arr.indexOf(rand) > -1) {
+      console.log(rand + " was found in the array at position " + arr.indexOf(rand) + ".");
+      return true;
+    }
+    else {
+      console.log(rand + " was not found in the array.");
+      return false;
+    }
+  };
 
 //Next problem
 
@@ -80,10 +131,18 @@ var str = 'this is my sentence';
 //Write a function called reverse that takes a given str as it's only argument and returns that string after it's been reversed
 
   //Code Here
+  function reversed(str) {
+    var result = [];
+    for (var i = 0; i < str.length; i++) {
+      result.push(str.charAt(i));
+    }
+    result.reverse();
+    return result.join("");
+  }
 
+reversed(str);
 
 //Next Problem
-
 
 var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 /*
@@ -104,6 +163,19 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
 
+function removeItem(arr, str) {
+  if(arr.indexOf(str) > -1) {
+    arr.splice(arr.indexOf(str),1);
+  } else {
+    console.log("Item not found.");
+  }
+  return arr;
+}
+
+function addItem(arr, str) {
+  arr.push(str);
+  return arr;
+}
 
 
 //Next Problem
@@ -113,6 +185,20 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
   //Code Here
+  
+  function maker() {
+    var result = [];
+    
+    for(var i = 0; i < 8; i++) {
+      var rand = Math.floor(Math.random() * 215) + 1;
+      console.log(rand);
+      result.push(rand);
+    }
+    
+    return result;
+  }
+  
+  maker();
 
 
 
