@@ -189,7 +189,7 @@ function addItem(arr, str) {
   function maker() {
     var result = [];
     
-    for(var i = 0; i < 8; i++) {
+    for(var i = 0; i < 10; i++) {
       var rand = Math.floor(Math.random() * 215) + 1;
       console.log(rand);
       result.push(rand);
@@ -210,7 +210,17 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
   //Code Here
-
+  function addTen(arr) {
+    
+    for (var i = 0; i < arr.length; i++) {
+      arr[i] = Number(arr[i]) + 10;
+    }
+    
+  }
+  
+  console.log(numbers);
+  addTen(numbers);
+  console.log(numbers);
 
 
 //Next Problem
@@ -231,7 +241,17 @@ for(var i = 0; i < num2; i++){
 //Write a function that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
   //Code Here
-
+  function longest(arr1, arr2) {
+    if (arr1.length > arr2.length) {
+      return arr1;
+    }
+    else {
+      return arr2;
+    }
+  }
+console.log("arr1 " + arr1);
+console.log("arr2 " + arr2);
+console.log(longest(arr1, arr2));
 
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example)
@@ -239,8 +259,22 @@ for(var i = 0; i < num2; i++){
 */
 
   //Code Here
+  function both(arr1, arr2) {
+    var result = [];
+    if (arr2.length > arr1.length) {
+      var placehold = arr1;
+      arr1 = arr2;
+      arr2 = placehold;
+    }
+    for (var i = 0; i < arr1.length; i++) {
+      if (arr2.indexOf(arr1[i]) > -1) {
+        result.push(arr1[i]);
+      }
+    }
+    return result;
+  }
   
-  
+  console.log("Both: " + both(arr1, arr2));
   
 
 //NEXT PROBLEM
@@ -279,12 +313,20 @@ array with those four objects. After that console.log the length of the Array an
 sure that it's equal to 4. */
 
   //Code Here
-
+  devMountainEmployees.push(tyler, cahlan, ryan, colt);
+  
+  console.log(devMountainEmployees.length);
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
-
+  for (var i = 0; i < devMountainEmployees.length; i++) {
+    if (devMountainEmployees[i] === cahlan) {
+      devMountainEmployees.splice(i, 1);
+    }
+  }
+  
+  console.log(devMountainEmployees);
 
 
 
@@ -326,6 +368,7 @@ of Data is to have an Array full of objects. */
 //Create an empty array called users.
 
   //Code Here
+  var users = [];
 
 /*Now add three user objects to your users array. Each user object should contain the
 following properties. name, email, password, username.*/
@@ -339,6 +382,21 @@ var user1 = {
 };
 
 //Your Code Here
+var user2 = {
+    name: 'Johnny 3Tears',
+    email: 'hwoodundead.johnny@hwood.me',
+    password: 'chicken4dinner',
+    username: 'User2'
+};
+
+var user3 = {
+    name: 'Jeff Jones',
+    email: 'jefferysjones@gmail.com',
+    password: 'javaScript4Lyfe',
+    username:  'Viability'
+}
+
+users = [user1, user2, user3];
 
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
@@ -349,6 +407,23 @@ objects until you find Tyler's account (use tylermcginnis33@gmail.com to find hi
 Once you find the particular index he's located in, delete him from the array.*/
 
   //Code Here
+  function deleteAccount(array, user) {
+    if (array.indexOf(user) > -1) {
+      if (prompt("Are you sure you want to delete user " + user.username + "? " + "Y/N") === "Y") {
+          array.splice(array.indexOf(user), 1);
+          alert(user.username + ' deleted forever.');
+        } else {
+          alert(user.username + ' not deleted.');
+          return;
+        }
+      }
+    else {
+        alert('User not found.'); 
+    }
+    
+  }
+  
+  deleteAccount(users, user1);
 
 //The activity we just did is very much how data works in 'the real world'.
 
